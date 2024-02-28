@@ -9,7 +9,7 @@ var dmg = 50
 var HP = 50*16
 
 func _ready():
-	set_physics_process(false)
+	set_physics_process(true) # false
 
 func  _process(_delta):
 	direction = pj.position - position
@@ -19,7 +19,7 @@ func  _process(_delta):
 		sprite.flip_h =false
 		
 func _physics_process(delta):
-	velocity = direction.normalized()*200
+	velocity = direction.normalized()*50 # 200
 	move_and_collide(velocity * delta)
 func dmgPlayer():
 	pj.take_damage(dmg)

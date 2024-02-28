@@ -344,7 +344,7 @@ tile_set = SubResource("TileSet_lx6kb")
 format = 2
 layer_0/tile_data = PackedInt32Array(2883631, 524288, 9)
 
-[node name="Player" parent="TileMap" groups=["Player"] instance=ExtResource("4_7wj8a")]
+[node name="Player" parent="TileMap" instance=ExtResource("4_7wj8a")]
 position = Vector2(236, 456)
 scale = Vector2(6.89078, 7.60121)
 

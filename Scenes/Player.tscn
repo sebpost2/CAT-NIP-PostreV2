@@ -463,7 +463,6 @@ vida_componente = NodePath("../VidaComponente")
 
 [node name="HitboxPlayer" type="CollisionShape2D" parent="HitboxComponente"]
 position = Vector2(0, -1.6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_78lfj")
 
 [node name="Golpe1" parent="." instance=ExtResource("12_sf7d3")]

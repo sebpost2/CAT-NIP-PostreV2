@@ -347,7 +347,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(2883631, 524288, 9)
 
 [node name="Player" parent="TileMap" instance=ExtResource("4_d3ew8")]
-position = Vector2(-70.9999, 557)
+position = Vector2(-218, 551)
 scale = Vector2(6.84761, 6.83148)
 
 [node name="Area2D" type="Area2D" parent="TileMap"]
@@ -357,7 +357,7 @@ position = Vector2(1014, 386)
 shape = SubResource("RectangleShape2D_cqrbt")
 
 [node name="Enemigo_Rata" parent="TileMap" groups=["enemy"] instance=ExtResource("5_ifkne")]
-position = Vector2(586, 476)
+position = Vector2(1703, 487)
 scale = Vector2(1.4, 1.4)
 
 [node name="Dash" parent="TileMap" instance=ExtResource("6_jovni")]
@@ -365,7 +365,7 @@ scale = Vector2(1.4, 1.4)
 [node name="MenuPaused" parent="." instance=ExtResource("7_h7ce7")]
 
 [node name="boss" parent="." instance=ExtResource("8_87ube")]
-position = Vector2(2166, 381)
+position = Vector2(605, 423)
 scale = Vector2(3.824, 3.824)
 
 [connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_area_2d_body_entered"]

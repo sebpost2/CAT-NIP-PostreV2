@@ -13,7 +13,7 @@ func exit():
 
 func transition():
 	var distance = owner.direction.length()
-	print(distance)
+	#print(distance)
 	if distance <120 :
 		get_parent().change_state("Attack_Left")
 		
