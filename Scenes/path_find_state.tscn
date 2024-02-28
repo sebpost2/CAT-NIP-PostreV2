@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://8tradctbhcyf"]
+
+[ext_resource type="Script" path="res://Scripts/PathFindState.gd" id="1_klnxn"]
+
+[node name="PathFindComponent" type="Node2D" node_paths=PackedStringArray("enemy")]
+script = ExtResource("1_klnxn")
+enemy = NodePath("")
+move_speed = 10.0
