@@ -28,9 +28,10 @@ func find_player(node):
 	
 
 func _process(_delta):
-	print("Player position: ", player.global_position)
+	#print("Player position: ", player.global_position)
 	#direction = player.position - position
 	#sprite.flip_h = direction.x<0 # Flip sprites towards player
+	pass
 	
 
 '''Function called when an animation finishes (Set var to false and turing machine may change state)'''

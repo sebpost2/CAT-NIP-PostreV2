@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://Scripts/Attack_Left.gd" id="8_r802k"]
 [ext_resource type="Script" path="res://Scripts/Beam.gd" id="9_6678r"]
 [ext_resource type="PackedScene" uid="uid://bv7eo77rlfpxt" path="res://Scenes/hitbox_componente.tscn" id="11_oip8m"]
-[ext_resource type="PackedScene" uid="uid://m7x612mi40ls" path="res://Scenes/golpe_boss_1.tscn" id="12_5mkur"]
+[ext_resource type="PackedScene" uid="uid://cb2kgnwndyg8o" path="res://Scenes/golpe_boss_1.tscn" id="12_5mkur"]
 [ext_resource type="Script" path="res://Scripts/TuringMachineAI.gd" id="13_nu5jp"]
 [ext_resource type="Script" path="res://Scripts/Boss1_idle.gd" id="14_v6wah"]
 [ext_resource type="Script" path="res://Scripts/Boss1_attack1.gd" id="15_n1tww"]
