@@ -17,7 +17,7 @@ class_name boss1_idle
 func Enter():
 	boss.animations['Idle'] = true
 	animation.play('Idle')
-	#print("Player object: ", player)
+	#print("Player object: ", player.get_position())
 
 
 func Exit():

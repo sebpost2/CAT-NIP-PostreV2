@@ -16,7 +16,7 @@ class_name boss1_attack1
 func Enter():
 	boss.animations['Attack Right'] = true
 	animation.play("Attack Right")
-	#print("Player object: ", player)
+	#print("Player object: ", player.player.get_position())
 
 
 func Exit():

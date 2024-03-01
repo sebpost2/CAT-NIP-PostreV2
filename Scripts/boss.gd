@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-@onready var player = $"."
+#@onready var player = find_node('Player')
 @onready var sprite = $Sprite2D
+var player
 
 var direction : Vector2
 var dmg = 50
@@ -13,11 +14,23 @@ var animations = {'Idle': false, 'Attack Right': false, 'Beam': false}
 
 func _ready():
 	set_physics_process(false) # Physisc are processed on TM AI states
+	player = find_player(get_tree().get_root())
+
+func find_player(node):
+	# Check if the current node is the player node
+	if node.has_method("get_name") and node.get_name() == "Player": return node
+
+	# Traverse children recursively
+	for i in range(node.get_child_count()):
+		var result = find_player(node.get_child(i))
+		if result: return result
+
 	
 
 func _process(_delta):
-	direction = player.position - position
-	sprite.flip_h = direction.x<0 # Flip sprites towards player
+	print("Player position: ", player.global_position)
+	#direction = player.position - position
+	#sprite.flip_h = direction.x<0 # Flip sprites towards player
 	
 
 '''Function called when an animation finishes (Set var to false and turing machine may change state)'''
