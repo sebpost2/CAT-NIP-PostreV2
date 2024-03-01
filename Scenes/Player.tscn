@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bv7eo77rlfpxt" path="res://Scenes/hitbox_componente.tscn" id="11_cvibm"]
 [ext_resource type="Script" path="res://Scripts/PlayerAttack.gd" id="11_egx8t"]
 [ext_resource type="Script" path="res://Scenes/PlayerDead.gd" id="12_jstyb"]
-[ext_resource type="PackedScene" uid="uid://ltwdbab8em3j" path="res://Scenes/golpe_1.tscn" id="12_sf7d3"]
 
 [sub_resource type="Animation" id="Animation_koxmt"]
 resource_name = "AttackLeft"
@@ -44,6 +43,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [15, 16, 17, 18]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/PlayerAttackClaw/AttackClawHitbox/AttackClawCollider:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="Animation" id="Animation_ilku2"]
@@ -240,6 +251,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/PlayerAttackClaw/AttackClawHitbox/AttackClawCollider:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_8lk32"]
 resource_name = "Right"
@@ -376,12 +399,16 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n2j0g"]
-size = Vector2(17.85, 16.2)
+size = Vector2(2.3, 1.9)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_78lfj"]
-size = Vector2(19.6, 19.3)
+size = Vector2(15.3, 14.85)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xjy7y"]
+size = Vector2(13.3, 13.35)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c38kp"]
+size = Vector2(4.8, 14.05)
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 position = Vector2(119, 46)
@@ -389,8 +416,6 @@ scale = Vector2(10, 10)
 collision_layer = 3
 script = ExtResource("1_8jisa")
 instanceExample = ExtResource("2_b1qnf")
-
-[node name="Dash" parent="." instance=ExtResource("2_fb4lv")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -410,7 +435,6 @@ frame = 12
 position = Vector2(-0.0999999, 0.0999997)
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_f18hk")
-flip_h = true
 hframes = 5
 vframes = 5
 frame = 5
@@ -423,7 +447,7 @@ texture = ExtResource("3_f18hk")
 centered = false
 hframes = 5
 vframes = 5
-frame = 15
+frame = 16
 
 [node name="Muerto" type="Sprite2D" parent="."]
 visible = false
@@ -455,7 +479,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ColisionBackground"]
-position = Vector2(0.4, -1.1)
+position = Vector2(-0.999999, -1.5)
 shape = SubResource("RectangleShape2D_n2j0g")
 
 [node name="VidaComponente" parent="." instance=ExtResource("10_eneoy")]
@@ -464,14 +488,11 @@ shape = SubResource("RectangleShape2D_n2j0g")
 vida_componente = NodePath("../VidaComponente")
 
 [node name="HitboxPlayer" type="CollisionShape2D" parent="HitboxComponente"]
-position = Vector2(0, -1.6)
+position = Vector2(-0.6, -1.3)
 shape = SubResource("RectangleShape2D_78lfj")
 
-[node name="Golpe1" parent="." instance=ExtResource("12_sf7d3")]
-position = Vector2(20.3, -1.4)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-22.6, -3.4)
+position = Vector2(-0.150002, -0.975001)
 shape = SubResource("RectangleShape2D_xjy7y")
 
 [node name="StateMachine" parent="." node_paths=PackedStringArray("initial_state") instance=ExtResource("8_6rdc0")]
@@ -481,12 +502,34 @@ initial_state = NodePath("PlayerIdle")
 script = ExtResource("9_c0tqk")
 PlayerAnimation = NodePath("../../AnimationPlayer")
 
+[node name="PlayerDash" parent="StateMachine" node_paths=PackedStringArray("player_collider", "hitbox", "Movement", "player") instance=ExtResource("2_fb4lv")]
+player_collider = NodePath("../../CollisionShape2D")
+hitbox = NodePath("../../HitboxComponente/HitboxPlayer")
+Movement = NodePath("../PlayerMovement")
+player = NodePath("../..")
+
 [node name="PlayerMovement" type="Node2D" parent="StateMachine"]
 script = ExtResource("10_wxkak")
-SPEED = 100.0
+PlayerSpeed = 120.0
 
-[node name="PlayerAttack" type="Node2D" parent="StateMachine"]
+[node name="PlayerAttackClaw" type="Node2D" parent="StateMachine" node_paths=PackedStringArray("PlayerAnimation")]
 script = ExtResource("11_egx8t")
+PlayerAnimation = NodePath("../../AnimationPlayer")
+
+[node name="AttackClawHitbox" type="Area2D" parent="StateMachine/PlayerAttackClaw"]
+
+[node name="AttackClawCollider" type="CollisionShape2D" parent="StateMachine/PlayerAttackClaw/AttackClawHitbox"]
+position = Vector2(10.2, -1.2)
+shape = SubResource("RectangleShape2D_c38kp")
+disabled = true
+
+[node name="AttackClawTimer" type="Timer" parent="StateMachine/PlayerAttackClaw"]
+one_shot = true
 
 [node name="PlayerDead" type="Node2D" parent="StateMachine"]
 script = ExtResource("12_jstyb")
+
+[connection signal="direction" from="StateMachine/PlayerMovement" to="StateMachine/PlayerIdle" method="_on_player_movement_direction"]
+[connection signal="direction" from="StateMachine/PlayerMovement" to="StateMachine/PlayerDash" method="_on_player_movement_direction"]
+[connection signal="area_entered" from="StateMachine/PlayerAttackClaw/AttackClawHitbox" to="StateMachine/PlayerAttackClaw" method="_on_attack_claw_hitbox_area_entered"]
+[connection signal="timeout" from="StateMachine/PlayerAttackClaw/AttackClawTimer" to="StateMachine/PlayerAttackClaw" method="_on_attack_claw_timer_timeout"]

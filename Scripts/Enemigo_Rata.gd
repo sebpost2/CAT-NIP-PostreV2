@@ -1,14 +1,10 @@
 extends CharacterBody2D
 class_name RatEnemy
 
-func _physics_process(delta):
-	move_and_slide()
-	$AnimationPlayer.play("IdleRight")
+func _physics_process(_delta):
+	pass
 	
-	if velocity.x>0:
-		$Movement.flip_h=false
-	else:
-		$Movement.flip_h=true
+	
 '''
 var speed:int = 100
 var player_chase:bool = false

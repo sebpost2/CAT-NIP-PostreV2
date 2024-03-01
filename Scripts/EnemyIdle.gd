@@ -1,14 +1,13 @@
 extends State
-class_name PlayerIdle
+class_name EnemyIdle
 
 @export var PlayerAnimation:AnimationPlayer
-@onready var WalkSprite:=$"../../WalkSprites"
-@onready var IdleSprite:=$"../../IdleSprites"
-@onready var AttackSprite:=$"../../Attack(temporal)"
+@onready var WalkSprite:=$"../../Movement"
+@onready var AttackSprite:=$"../../Attack"
 @onready var DeadSprite:=$"../../Muerto"
-var direction_x=1
 
 func Enter():
+	var direction_x = Input.get_axis("ui_left", "ui_right")
 	if(direction_x == 1):
 		IdleSprite.flip_h=false
 	elif(direction_x==-1):
@@ -32,7 +31,3 @@ func Update(_delta: float):
 		AttackSprite.visible=true
 		DeadSprite.visible=false
 		Transitioned.emit(self,"PlayerAttackClaw")
-
-
-func _on_player_movement_direction(dir):
-	direction_x=dir

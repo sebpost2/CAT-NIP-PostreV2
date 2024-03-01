@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var instanceExample: PackedScene
 func _physics_process(delta):
 	move_and_slide()
+	pass
 
 func _input(event: InputEvent) -> void:
 	if(event is InputEventMouseButton):
