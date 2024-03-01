@@ -57,8 +57,9 @@ func _on_area_2d_body_entered(body):
 	if(body.get_name() == "Player"):
 		EstaDentro = true # Replace with function body.
 
-
 func _on_area_2d_body_exited(body):
 	if(body.get_name() == "Player"):
 		EstaDentro = false
 	# Replace with function body.
+	
+

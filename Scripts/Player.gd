@@ -1,8 +1,19 @@
 extends CharacterBody2D
 
-func _physics_process(_delta):
+@export var instanceExample: PackedScene
+func _physics_process(delta):
 	move_and_slide()
 	pass
+
+func _input(event: InputEvent) -> void:
+	if(event is InputEventMouseButton):
+		if(event.button_index == MOUSE_BUTTON_LEFT):
+			if(event.pressed):
+				var instance = instanceExample.instantiate()
+				add_sibling(instance)
+				instance.global_position = get_global_mouse_position()
+				
+				
 
 '''
 const LIMIT_Y = 500
