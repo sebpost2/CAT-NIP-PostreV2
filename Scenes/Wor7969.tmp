@@ -1,15 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3nuyka3sa2rc"]
+[gd_scene load_steps=12 format=3 uid="uid://d1s8aspdn8cod"]
 
-[ext_resource type="Script" path="res://Scripts/World.gd" id="1_d8oht"]
-[ext_resource type="Texture2D" uid="uid://ewbu1qcafjt1" path="res://Assets/Map/Tileset.png" id="1_jtlsj"]
-[ext_resource type="PackedScene" uid="uid://dmme5lj1ruujk" path="res://Scenes/UI/menu_paused.tscn" id="2_0qv60"]
-[ext_resource type="PackedScene" uid="uid://d4aye30taop7c" path="res://Scenes/background.tscn" id="2_sc58y"]
-[ext_resource type="PackedScene" uid="uid://dd3nm45u2oioq" path="res://Scenes/Player.tscn" id="4_7wj8a"]
-[ext_resource type="PackedScene" uid="uid://cmsuk6a2w8ein" path="res://Scenes/enemigo_rata.tscn" id="5_pu4j1"]
-[ext_resource type="PackedScene" uid="uid://cfrhe4fqy3rbp" path="res://Scenes/dash.tscn" id="7_iyag3"]
+[ext_resource type="Script" path="res://Scripts/World.gd" id="1_kypyc"]
+[ext_resource type="PackedScene" uid="uid://d4aye30taop7c" path="res://Scenes/background.tscn" id="2_gft8e"]
+[ext_resource type="Texture2D" uid="uid://ewbu1qcafjt1" path="res://Assets/Map/Tileset.png" id="3_7eprf"]
+[ext_resource type="PackedScene" uid="uid://dd3nm45u2oioq" path="res://Scenes/Player.tscn" id="4_d3ew8"]
+[ext_resource type="PackedScene" uid="uid://cmsuk6a2w8ein" path="res://Scenes/enemigo_rata.tscn" id="5_ifkne"]
+[ext_resource type="PackedScene" uid="uid://cfrhe4fqy3rbp" path="res://Scenes/dash.tscn" id="6_jovni"]
+[ext_resource type="PackedScene" uid="uid://dmme5lj1ruujk" path="res://Scenes/UI/menu_paused.tscn" id="7_h7ce7"]
+[ext_resource type="PackedScene" uid="uid://dw234wy7bm6a1" path="res://Scenes/boss.tscn" id="8_87ube"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_erkjh"]
-texture = ExtResource("1_jtlsj")
+texture = ExtResource("3_7eprf")
 1:0/0 = 0
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
@@ -334,9 +335,10 @@ sources/0 = SubResource("TileSetAtlasSource_erkjh")
 size = Vector2(525.5, 903.75)
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_d8oht")
+script = ExtResource("1_kypyc")
 
-[node name="Background" parent="." instance=ExtResource("2_sc58y")]
+[node name="Background" parent="." instance=ExtResource("2_gft8e")]
+position = Vector2(-31, -18)
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(-0.00012207, 1.81899e-12)
@@ -344,27 +346,39 @@ tile_set = SubResource("TileSet_lx6kb")
 format = 2
 layer_0/tile_data = PackedInt32Array(2883631, 524288, 9)
 
-[node name="Player" parent="TileMap" instance=ExtResource("4_7wj8a")]
-position = Vector2(225, 572)
-scale = Vector2(6.89078, 7.60121)
+[node name="Player" parent="TileMap" instance=ExtResource("4_d3ew8")]
+<<<<<<<< HEAD:Scenes/Wor8174.tmp
+position = Vector2(124, 514)
+========
+position = Vector2(-218, 551)
+>>>>>>>> Preshi:Scenes/Wor7969.tmp
+scale = Vector2(6.84761, 6.83148)
 
 [node name="Area2D" type="Area2D" parent="TileMap"]
-collision_layer = 5
-collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Area2D"]
-position = Vector2(952, 472)
+position = Vector2(1014, 386)
 shape = SubResource("RectangleShape2D_cqrbt")
 
-[node name="Enemigo_Rata" parent="TileMap" groups=["enemy"] instance=ExtResource("5_pu4j1")]
-position = Vector2(519, 534)
+[node name="Enemigo_Rata" parent="TileMap" groups=["enemy"] instance=ExtResource("5_ifkne")]
+<<<<<<<< HEAD:Scenes/Wor8174.tmp
+position = Vector2(547, 503)
+========
+position = Vector2(1703, 487)
+>>>>>>>> Preshi:Scenes/Wor7969.tmp
 scale = Vector2(1.4, 1.4)
 
-[node name="Dash" parent="TileMap" instance=ExtResource("7_iyag3")]
+[node name="Dash" parent="TileMap" instance=ExtResource("6_jovni")]
 
-[node name="MenuPaused" parent="." instance=ExtResource("2_0qv60")]
-offset_right = 0.0
-offset_bottom = 0.0
+[node name="MenuPaused" parent="." instance=ExtResource("7_h7ce7")]
+
+[node name="boss" parent="." instance=ExtResource("8_87ube")]
+<<<<<<<< HEAD:Scenes/Wor8174.tmp
+position = Vector2(2729, 326)
+========
+position = Vector2(605, 423)
+>>>>>>>> Preshi:Scenes/Wor7969.tmp
+scale = Vector2(3.824, 3.824)
 
 [connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="TileMap/Area2D" to="." method="_on_area_2d_body_exited"]

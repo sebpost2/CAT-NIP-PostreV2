@@ -347,7 +347,11 @@ format = 2
 layer_0/tile_data = PackedInt32Array(2883631, 524288, 9)
 
 [node name="Player" parent="TileMap" instance=ExtResource("4_d3ew8")]
+<<<<<<<< HEAD:Scenes/Wor8174.tmp
 position = Vector2(124, 514)
+========
+position = Vector2(-218, 551)
+>>>>>>>> Preshi:Scenes/Wor7969.tmp
 scale = Vector2(6.84761, 6.83148)
 
 [node name="Area2D" type="Area2D" parent="TileMap"]
@@ -357,7 +361,11 @@ position = Vector2(1014, 386)
 shape = SubResource("RectangleShape2D_cqrbt")
 
 [node name="Enemigo_Rata" parent="TileMap" groups=["enemy"] instance=ExtResource("5_ifkne")]
+<<<<<<<< HEAD:Scenes/Wor8174.tmp
 position = Vector2(547, 503)
+========
+position = Vector2(1703, 487)
+>>>>>>>> Preshi:Scenes/Wor7969.tmp
 scale = Vector2(1.4, 1.4)
 
 [node name="Dash" parent="TileMap" instance=ExtResource("6_jovni")]
@@ -365,7 +373,11 @@ scale = Vector2(1.4, 1.4)
 [node name="MenuPaused" parent="." instance=ExtResource("7_h7ce7")]
 
 [node name="boss" parent="." instance=ExtResource("8_87ube")]
+<<<<<<<< HEAD:Scenes/Wor8174.tmp
 position = Vector2(2729, 326)
+========
+position = Vector2(605, 423)
+>>>>>>>> Preshi:Scenes/Wor7969.tmp
 scale = Vector2(3.824, 3.824)
 
 [connection signal="body_entered" from="TileMap/Area2D" to="." method="_on_area_2d_body_entered"]
