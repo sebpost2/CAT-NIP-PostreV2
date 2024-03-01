@@ -4,7 +4,9 @@ class_name PlayerMovement
 @onready var WalkSprite := $"../../WalkSprites"
 @onready var AnimationPl := $"../../AnimationPlayer"
 @onready var player := $"../.."
-@export var SPEED=10.0
+@onready var Dash:=$"../PlayerDash"
+@export var PlayerSpeed=10.0
+signal direction(dir)
 
 func movePlayer(SPEED):
 	var direction_x = Input.get_axis("ui_left", "ui_right")
@@ -29,9 +31,12 @@ func movePlayer(SPEED):
 	if (not Input.is_anything_pressed()):
 		Transitioned.emit(self,"PlayerIdle")
 	
+	if Input.is_action_just_pressed("Dash") and !Dash.is_cooldown():
+		emit_signal("direction",direction_x)
+		Transitioned.emit(self,"PlayerDash")
 
 func Enter():
 	pass
 	
 func Update(_delta: float):
-	movePlayer(SPEED)
+	movePlayer(PlayerSpeed)

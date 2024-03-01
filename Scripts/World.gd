@@ -44,11 +44,11 @@ func simularBackground():
 	if(EstaDentro):
 
 		# 8.1 esta masso bien segun testing, consultar si se usa	
-		if player.dash.is_dashing():
-			collisionShape.position.x += 8.1*12
-			cameraPlayer.limit_left = cameraPlayer.limit_left + 8.1*12
-			menuPausa.position.x += 8.1*12
-		else:
+		#if player.dash.is_dashing():
+		#	collisionShape.position.x += 8.1*12
+		#	cameraPlayer.limit_left = cameraPlayer.limit_left + 8.1*12
+		#	menuPausa.position.x += 8.1*12
+		#else:
 			collisionShape.position.x += 8.1
 			cameraPlayer.limit_left = cameraPlayer.limit_left + 8.1
 			menuPausa.position.x += 8.1

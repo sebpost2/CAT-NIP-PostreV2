@@ -344,8 +344,8 @@ tile_set = SubResource("TileSet_lx6kb")
 format = 2
 layer_0/tile_data = PackedInt32Array(2883631, 524288, 9)
 
-[node name="Player" parent="TileMap" groups=["Player"] instance=ExtResource("4_7wj8a")]
-position = Vector2(236, 456)
+[node name="Player" parent="TileMap" instance=ExtResource("4_7wj8a")]
+position = Vector2(225, 572)
 scale = Vector2(6.89078, 7.60121)
 
 [node name="Area2D" type="Area2D" parent="TileMap"]
@@ -357,7 +357,7 @@ position = Vector2(952, 472)
 shape = SubResource("RectangleShape2D_cqrbt")
 
 [node name="Enemigo_Rata" parent="TileMap" groups=["enemy"] instance=ExtResource("5_pu4j1")]
-position = Vector2(1471, 456)
+position = Vector2(519, 534)
 scale = Vector2(1.4, 1.4)
 
 [node name="Dash" parent="TileMap" instance=ExtResource("7_iyag3")]

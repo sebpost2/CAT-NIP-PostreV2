@@ -2,6 +2,7 @@ extends Node2D
 class_name VidaComponente
 
 @export var MAX_VIDA := 10.0
+@onready var HitStun:=$HitStun
 var vida: float
 
 func _ready():
