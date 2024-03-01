@@ -1,6 +1,7 @@
-[gd_scene load_steps=35 format=3 uid="uid://dd3nm45u2oioq"]
+[gd_scene load_steps=36 format=3 uid="uid://dd3nm45u2oioq"]
 
 [ext_resource type="Script" path="res://Scripts/Player.gd" id="1_8jisa"]
+[ext_resource type="PackedScene" uid="uid://cmsuk6a2w8ein" path="res://Scenes/enemigo_rata.tscn" id="2_b1qnf"]
 [ext_resource type="PackedScene" uid="uid://cfrhe4fqy3rbp" path="res://Scenes/dash.tscn" id="2_fb4lv"]
 [ext_resource type="Texture2D" uid="uid://dfdlxt88hixd6" path="res://Assets/Player/SpriteCatFinal.png" id="3_f18hk"]
 [ext_resource type="Texture2D" uid="uid://dlo50ux1hc8n2" path="res://Assets/Player/attack and die.png" id="4_rdvkt"]
@@ -387,6 +388,7 @@ position = Vector2(119, 46)
 scale = Vector2(10, 10)
 collision_layer = 3
 script = ExtResource("1_8jisa")
+instanceExample = ExtResource("2_b1qnf")
 
 [node name="Dash" parent="." instance=ExtResource("2_fb4lv")]
 
@@ -463,7 +465,6 @@ vida_componente = NodePath("../VidaComponente")
 
 [node name="HitboxPlayer" type="CollisionShape2D" parent="HitboxComponente"]
 position = Vector2(0, -1.6)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_78lfj")
 
 [node name="Golpe1" parent="." instance=ExtResource("12_sf7d3")]
