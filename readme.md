@@ -19,9 +19,9 @@ Cat Nip es un juego desarrollado con Godot Engine.
 | | |
 |---|---|
 | ![Primer prototipo](images/Cat_nip1.jpg) | **Prototipo inicial** – prueba de tileset y control básico del gato. |
-| ![Slime combat](images/Cat_nip2.jpg) | **Combate temprano** contra el slime rojo (hitbox + animación de ataque). |
+| ![Slime combat](images/Cat_nip2.jpg) | **Combate temprano** contra el icono rojo de godot (hitbox + animación de ataque). |
 | ![Enemy hitboxes](images/Cat_nip3.jpg) | **Depuración de colisiones**: caja de daño y caja de impacto en la rata guerrera. |
-| ![Platforming](images/Cat_nip4.jpg) | **Sección de plataformas** verticales con tornillos móviles. |
+| ![Platforming](images/Cat_nip4.jpg) | **Ataques especiales** ataque tornado del gato. |
 | ![Stealth rat](images/Cat_nip5.jpg) | **IA enemiga**: detección de silueta del gato y señal de ataque. |
 | ![Boss WIP](images/Cat_nip6.jpg) | **Jefe final (WIP)**: animación preliminar y escenario dedicado. |
 
