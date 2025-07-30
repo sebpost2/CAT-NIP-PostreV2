@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bv7eo77rlfpxt"]
 
-[ext_resource type="Script" path="res://Componentes/Entidades/HitboxComponente.gd" id="1_c31lr"]
+[ext_resource type="Script" uid="uid://bj78vrsicg7gj" path="res://Componentes/Entidades/HitboxComponente.gd" id="1_c31lr"]
 
 [node name="HitboxComponente" type="Area2D"]
 light_mask = 3

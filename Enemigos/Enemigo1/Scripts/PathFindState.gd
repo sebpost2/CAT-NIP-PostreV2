@@ -1,34 +1,37 @@
 extends State
 class_name PathfindState
 
-@export var enemy: CharacterBody2D
+@onready var enemy:CharacterBody2D=$"../.."
 @export var move_speed := 40.0
-@export var WalkSprite:Sprite2D
-@export var AttackSprite:Sprite2D
 @export var AnimationEn:AnimationPlayer
-@export var SpriteSize:int
-var player: CharacterBody2D
+@onready var SpriteSize:int=-15
+@onready var Dash=$"../EnemyRatDash"
+
+@onready var EnemySprite:Sprite2D=$"../../EnemySprites"
+
+signal CurrDir(Direction)
 
 func Enter():
-	WalkSprite.visible=true
-	AttackSprite.visible=false
-	print("Enemigo en persecucion")
-	player=get_tree().get_first_node_in_group("Player")
-
+	pass
 	
-func Physics_Update(delta: float):
-	var direction = player.global_position-enemy.global_position
-	AnimationEn.play("WalkRight")
-	if direction.length()>200:
-		enemy.position += ((player.position+Vector2(5,5))-enemy.position)/move_speed
-		if (player.position.x+5)-enemy.position.x>SpriteSize:
-			WalkSprite.flip_h=false
+func Update(_delta: float):
+	#print("Moving")
+	if !Dash.is_cooldown():
+		Transitioned.emit(self,"EnemyRatDash")
+	
+	var dir = enemy.to_local(enemy.global_transform.origin).normalized()
+	var direction = PlayerGlobal.Global_Position-enemy.global_position
+	AnimationEn.play("Enemy_walk")
+	enemy.position.x += ((PlayerGlobal.Global_Position.x+5)-enemy.position.x)/move_speed
+	if direction.length()>100:
+		if (PlayerGlobal.Global_Position.x)-enemy.position.x>-100:
+			EnemySprite.flip_h=false
 		else:
-			WalkSprite.flip_h=true
-	if direction.length()<200:
-		print("Enemigo atacando")
-		WalkSprite.visible=false
-		AttackSprite.visible=true
+			EnemySprite.flip_h=true
+	if direction.length()<120 and abs(enemy.position.y-PlayerGlobal.Global_Position.y)<100:
 		Transitioned.emit(self,"EnemyRatAttack")
-	else:
-		enemy.velocity=Vector2()
+
+func _on_enemy_vision_area_body_exited(body):
+	if body.is_in_group("Player"):
+		#print("Transition")
+		Transitioned.emit(self,"EnemyRatIdle")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnbrlj3gu7wrc"]
+
+[ext_resource type="AudioStream" uid="uid://bypqsv6i3tr5y" path="res://Sounds/gamejam2024.wav" id="2_kncht"]
+
+[node name="Musica_fondo" type="Node"]
+
+[node name="ButtonClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_kncht")
+volume_db = -12.275
+autoplay = true
