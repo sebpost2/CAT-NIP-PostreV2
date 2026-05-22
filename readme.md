@@ -1,37 +1,70 @@
-# Cat Nip
-MASTER  BRANCH
-## Descripción
-Cat Nip es un juego desarrollado con Godot Engine.
+**[English](readme.md) · [Español](readme.es.md)**
 
-## Características
-- Juego de aventuras con gatos
-- Gráficos en 2D
-- Mecánicas de juego emocionantes
+---
 
-## Instalación
-1. Clona este repositorio.
-2. Abre Godot Engine.
-3. Haz clic en "Importar" y selecciona la carpeta del proyecto.
-4. Haz doble clic en el archivo `project.godot` para abrir el proyecto.
+# Cat-Nip
 
-## 📸 Capturas destacadas
+2D platformer & puzzle game built with **Godot Engine** and **GDScript** as a university project. I led the programming side: designed enemy AI, the final boss, and set up the pixel-art animation pipeline.
+
+Author: [sebpost2](https://github.com/sebpost2)
+
+---
+
+## My role
+
+- **Lead programmer** on the team.
+- **Enemy AI**: patrol, detect, attack and stun states. Detection lines based on the cat's silhouette and a pre-attack telegraph cue.
+- **Final boss**: phase-based attack patterns, hitboxes, dedicated animations and a custom arena.
+- **Pixel-art animation pipeline**: integration of sprite sheets, state machines and pose blending.
+- **Movement mechanics**: jump, double jump, basic attack and special attacks (including the "tornado").
+- **Combat system**: damage boxes, hit boxes and visual feedback.
+
+## Featured screenshots
 
 | | |
 |---|---|
-| ![Primer prototipo](images/Cat_nip1.jpg) | **Prototipo inicial** – prueba de tileset y control básico del gato. |
-| ![Slime combat](images/Cat_nip2.jpg) | **Combate temprano** contra el icono rojo de godot (hitbox + animación de ataque). |
-| ![Enemy hitboxes](images/Cat_nip3.jpg) | **Depuración de colisiones**: caja de daño y caja de impacto en la rata guerrera. |
-| ![Platforming](images/Cat_nip4.jpg) | **Ataques especiales** ataque tornado del gato. |
-| ![Stealth rat](images/Cat_nip5.jpg) | **IA enemiga**: detección de silueta del gato y señal de ataque. |
-| ![Boss WIP](images/Cat_nip6.jpg) | **Jefe final (WIP)**: animación preliminar y escenario dedicado. |
+| ![Initial prototype](images/Cat_nip1.jpg) | **Initial prototype** — tileset test and basic cat controls. |
+| ![Early combat](images/Cat_nip2.jpg) | **Early combat** against the red Godot icon (hitbox + attack animation). |
+| ![Hitboxes](images/Cat_nip3.jpg) | **Collision debugging**: damage box and hit box on the warrior rat. |
+| ![Special attacks](images/Cat_nip4.jpg) | **Special attacks** — the cat's tornado attack. |
+| ![Enemy AI](images/Cat_nip5.jpg) | **Enemy AI**: cat-silhouette detection and pre-attack telegraph. |
+| ![Boss WIP](images/Cat_nip6.jpg) | **Final boss (WIP)**: preliminary animation and dedicated arena. |
 
-## Contribución
-Si deseas contribuir a este proyecto, sigue estos pasos:
-1. Haz un fork de este repositorio.
-2. Crea una rama con tu nueva funcionalidad: `git checkout -b nueva-funcionalidad`.
-3. Realiza los cambios necesarios y haz commit: `git commit -m "Agrega nueva funcionalidad"`.
-4. Haz push a la rama: `git push origin nueva-funcionalidad`.
-5. Abre un pull request en este repositorio.
+## Stack
 
-## Licencia
-Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](./LICENSE) para más detalles.
+| Layer | Technology |
+|---|---|
+| Engine | Godot 4 |
+| Language | GDScript |
+| Art | Pixel-art (custom sprite sheets) |
+| Audio | SFX and music bundled as project resources |
+
+## Project structure
+
+```
+├── Assets/        # Sprites, tilesets, fonts
+├── Bosses/        # Boss scenes and scripts
+├── Componentes/   # Reusable components (hitbox, hurtbox, etc.)
+├── Enemigos/      # Enemy scenes, animations and AI
+├── Game/          # Levels, game manager
+├── Global/        # Singletons (autoload) — global state and managers
+├── Player/        # Cat scene, animations and scripts
+├── Sounds/        # SFX and music
+└── project.godot
+```
+
+## Running locally
+
+1. Clone this repository.
+2. Open Godot Engine 4.
+3. In the Godot launcher click **Import** and select the project folder.
+4. Double-click `project.godot` to open it.
+5. Press F5 to run.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+---
+
+Built as a university project by the team. Programming led by [sebpost2](https://github.com/sebpost2).
